@@ -11,6 +11,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'com.bmuschko.tomcat'
+apply plugin: 'idea'
 
 // JDK version source compatibility
 sourceCompatibility = 1.8
@@ -19,7 +20,7 @@ version = '1.0'
 // War file name
 war.baseName = 'java-ajax-war'
 
-project.webAppDirName = 'src/main/WebContent'
+project.webAppDirName = 'src/main/webapp'
 
 repositories {
     mavenLocal()
@@ -35,16 +36,18 @@ sourceSets {
     }
 }
 
-// dependencies to run on tomcat, are mandatory for tomcat plugin
 dependencies {
-    def tomcatVersion = '7.0.57'
+    def tomcatVersion = '7.0.59'
     tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
             "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}"
     tomcat("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}") {
         exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
     }
+}
 
-    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+dependencies {
+    testCompile 'junit:junit:4.12'
+    providedCompile "javax.servlet:javax.servlet-api:3.1.0"
 }
 
 // context where tomcat is deployed, by default localhost:8080/
