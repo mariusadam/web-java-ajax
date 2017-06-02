@@ -1,0 +1,52 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.0'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'com.bmuschko.tomcat'
+
+// JDK version source compatibility
+sourceCompatibility = 1.8
+// project version
+version = '1.0'
+// War file name
+war.baseName = 'java-ajax-war'
+
+project.webAppDirName = 'src/main/WebContent'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+// Set source directory
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+    }
+}
+
+// dependencies to run on tomcat, are mandatory for tomcat plugin
+dependencies {
+    def tomcatVersion = '7.0.57'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}"
+    tomcat("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}") {
+        exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
+    }
+
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+}
+
+// context where tomcat is deployed, by default localhost:8080/
+tomcatRun.contextPath = '/'
+tomcatRunWar.contextPath = '/'
