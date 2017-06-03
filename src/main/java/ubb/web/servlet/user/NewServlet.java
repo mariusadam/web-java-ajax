@@ -15,6 +15,7 @@ public class NewServlet extends HttpServlet {
     public final static String UserBeanId = "user";
     public final static String NewUserJsp = "/WEB-INF/user/new.jsp";
     public final static String ListUserJsp = "/WEB-INF/user/list.jsp";
+    public final static String CrsfTokenId = "_user_crsf_token";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

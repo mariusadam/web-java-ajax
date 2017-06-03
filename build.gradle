@@ -48,8 +48,9 @@ dependencies {
 dependencies {
     testCompile 'junit:junit:4.12'
     providedCompile "javax.servlet:javax.servlet-api:3.1.0"
+    providedCompile group: 'javax.servlet', name: 'jstl', version: '1.2'
 }
 
 // context where tomcat is deployed, by default localhost:8080/
-tomcatRun.contextPath = '/'
-tomcatRunWar.contextPath = '/'
+tomcatRun.contextPath = '/JavaAjax'
+tomcatRunWar.contextPath = '/JavaAjax'
