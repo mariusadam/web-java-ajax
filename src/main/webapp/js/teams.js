@@ -67,7 +67,7 @@ function getTeamAjax(formName) {
                         writeMessage('football_team_form_messages', data.type, data.msg);
                         $('#football_team_form_id').find('option[value=' + id + ']').remove();
                         // remove id form select
-                        resetForm('football_team_form');
+                        hardResetForm('football_team_form');
                     }
                 },
                 type: 'GET'
@@ -110,7 +110,7 @@ function postFormAjax(formName) {
 function bindResetButton() {
     $('#football_team_reset_btn').click(function (e) {
         e.preventDefault();
-        resetForm('football_team_form');
+        hardResetForm('football_team_form');
     });
 }
 
@@ -158,7 +158,7 @@ function formDeleteHandler(type, msg, deletedId) {
     if (type == 'success') {
         $('#football_team_form_id').find('option[value=' + deletedId + ']').remove();
         // remove id form select
-        resetForm('football_team_form');
+        hardResetForm('football_team_form');
     }
 }
 

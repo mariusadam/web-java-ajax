@@ -1,4 +1,4 @@
-package ubb.web.bean;
+package ubb.web.bean.domain;
 
 /**
  * @author Marius Adam
@@ -7,7 +7,7 @@ public enum Role {
     Admin("Admin", 1000),
     RegularUser("Regular user", 1);
 
-    private String name;
+    private String  name;
     private Integer accessLevel;
 
     Role(String name, Integer accessLevel) {

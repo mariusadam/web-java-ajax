@@ -1,16 +1,29 @@
-package ubb.web.bean;
+package ubb.web.bean.domain;
 
 /**
  * @author Marius Adam
  */
-public class User extends Entity<Integer> {
-    private String name;
-    private String username;
-    private String password;
-    private Integer age;
-    private String email;
-    private String webPage;
-    private Role role;
+public class User extends Entity<Long> {
+    private           String  name;
+    private           String  username;
+    private transient String  password;
+    private           Integer age;
+    private           String  email;
+    private           String  webPage;
+    private           Role    role;
+
+    public User() {
+    }
+
+    public User(String name, String username, String password, Integer age, String email, String webPage, Role role) {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.age = age;
+        this.email = email;
+        this.webPage = webPage;
+        this.role = role;
+    }
 
     public String getName() {
         return name;

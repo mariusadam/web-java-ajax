@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         id="WebApp_ID" version="3.0">
     <display-name>GradleWarPlugin</display-name>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
     <servlet>
-        <servlet-name>UserNewServlet</servlet-name>
-        <servlet-class>ubb.web.servlet.user.NewServlet</servlet-class>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>ubb.web.servlet.UserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>UserNewServlet</servlet-name>
-        <url-pattern>/user/new</url-pattern>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/ajax/user/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>UserListServlet</servlet-name>
-        <servlet-class>ubb.web.servlet.user.ListServlet</servlet-class>
+        <servlet-name>GetUserServlet</servlet-name>
+        <servlet-class>ubb.web.servlet.GetUserServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>UserListServlet</servlet-name>
-        <url-pattern>/user/list</url-pattern>
+        <servlet-name>GetUserServlet</servlet-name>
+        <url-pattern>/ajax/get-user/*</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>HelloForm</servlet-name>
-        <servlet-class>ubb.web.servlet.HelloForm</servlet-class>
+        <servlet-name>UserMainServlet</servlet-name>
+        <servlet-class>ubb.web.servlet.MainServlet</servlet-class>
     </servlet>
-
     <servlet-mapping>
-        <servlet-name>HelloForm</servlet-name>
-        <url-pattern>/hello-form</url-pattern>
+        <servlet-name>UserMainServlet</servlet-name>
+        <url-pattern>/user/main</url-pattern>
     </servlet-mapping>
+
 </web-app>

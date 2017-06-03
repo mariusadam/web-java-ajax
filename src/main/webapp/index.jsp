@@ -9,12 +9,7 @@
 <body>
 <h3>Available operations</h3>
 <ul>
-    <li>
-        <a href="${pageContext.request.contextPath}/user/new">Add a new user</a>
-    </li>
-    <li>
-        <a href="${pageContext.request.contextPath}/user/list">View registered users</a>
-    </li>
+
 </ul>
 </body>
 </html>

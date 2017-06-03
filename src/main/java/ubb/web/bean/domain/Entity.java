@@ -1,4 +1,4 @@
-package ubb.web.bean;
+package ubb.web.bean.domain;
 
 /**
  * @author Marius Adam
